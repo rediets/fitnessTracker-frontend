@@ -1,69 +1,628 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:900);
+@import url(https://fonts.googleapis.com/css?family=Mr+Dafoe);
+@import url(https://fonts.googleapis.com/css?family=Candal);
+@import url(https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&family=Press+Start+2P&family=Shrikhand&display=swap);
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: 2D00F7;
+  line-height: 24px;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  background-color: cornsilk;
 }
 
 body {
   margin: 0;
+  padding: 0;
+}
+
+/********** MULTI-PAGE STYLES **********/
+/* HEADERS/SUBHEADERS */
+.headers {
+  margin-top: 2rem;
+  padding: 25px;
+
   display: flex;
+  justify-content: center;
+
+  font-family: 'Shrikhand', cursive;
+  font-size: 65px;
+  background: linear-gradient(
+    rgb(7, 3, 98) -0.1%,
+    rgb(179, 26, 132) 47.7%,
+    rgb(239, 186, 83) 100.2%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #ffb600;
+}
+
+.backlinks {
+  text-align: center;
+  margin-top: -80px;
+  padding: 15px;
+  font-family: 'Shrikhand', cursive;
+  font-size: 25px;
+
+  background: #6a00f4;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #ffb600;
+}
+
+/* FORMS */
+.usepassforms,
+.newroutineform,
+.newactivityform {
+  display: flex;
+  flex-direction: column;
   place-items: center;
-  min-width: 320px;
+  padding: 50px;
+  padding-top: 30px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.usepassforms input,
+.newroutineform input,
+.newactivityform input {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  margin: 10px;
+  padding: 15px;
+  width: 90%;
+  text-align: center;
+  border: #ffb600 solid 3px;
+  border-radius: 10px;
+}
+
+/* BUTTONS */
+.usepassforms button,
+.logoutbutton {
+  font-size: 18px;
+  margin: 25px;
+  padding: 15px;
+  width: 105%;
+  text-align: center;
+  border: #ffb600 solid 3px;
+  border-radius: 10px;
+  background-color: cornsilk;
+
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.usepassforms button:before,
+.logoutbutton:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 9px;
+  background: linear-gradient(
+    148.2deg,
+    rgb(247, 0, 0) -21.9%,
+    rgb(164, 50, 237) 92.2%
+  );
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.usepassforms button:hover,
+.usepassforms button:focus,
+.usepassforms button:active,
+.logoutbutton:hover,
+.logoutbutton:focus,
+.logoutbutton:active {
+  color: white;
+}
+
+.usepassforms button:hover:before,
+.usepassforms button:focus:before,
+.usepassforms button:active:before,
+.logoutbutton:hover:before,
+.logoutbutton:focus:before,
+.logoutbutton:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.logoutbutton {
+  width: 15%;
+  margin: -7px;
+  margin-left: auto;
+  font-family: 'Press Start 2P', cursive;
+  border-color: #5c0099;
+}
+
+.logoutbutton:before {
+  background: linear-gradient(
+    to right,
+    rgb(198, 255, 221),
+    rgb(251, 215, 134),
+    rgb(247, 121, 125)
+  );
+}
+
+
+/********** PAGE-SPECIFIC STYLES **********/
+
+/* HOME PAGE */
+.welcomecontainer {
+ 
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  position: relative;
+  margin: 0 auto;
+  width: 200vh;
+  height: 130vh;
+}
+
+#welcome {
+  margin: 0;
+  padding-left: 50px;
+  padding-top: 200px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.welcomeline {
+  position: relative;
+  margin-top: -1000px;
+  line-height: 1.1;
+
+  font-size: 95px;
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
+
+  background-image: -webkit-linear-gradient(
+    #378dbc 0%,
+    #b6e8f1 46%,
+    #ffffff 50%,
+    #32120e 54%,
+    #ffc488 58%,
+    #582c11 90%,
+    #ec9b4e 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 4px #f5f5f5;
+}
+
+.fitness {
+  position: absolute;
+  margin: 0px;
+  margin-left: 175px;
+  margin-top: -913px;
+
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 100px;
+  color: #f975f7;
+  letter-spacing: 6px;
+  transform: rotate(-6deg);
+  -webkit-text-stroke: 1px #f008b7;
+  -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
+  filter: drop-shadow(2px 2px 10px #f008b7);
+
+  z-index: 20;
+}
+
+.witty {
+  position: relative;
+  margin-top: 50px;
+
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 33px;
+  color: #bc00dd;
+  -webkit-text-stroke: 1.5px #8900f2;
+}
+
+#word:hover {
+  -webkit-text-stroke: 1px #f008b7;
+  -webkit-filter: drop-shadow(0px 0px 3px #f008b7);
+  filter: drop-shadow(0px 0px 3px #f008b7);
+}
+
+/* LOGIN/REGISTER PAGE */
+.logreg {
+  position: relative;
+  margin-top: 20px;
+
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 33px;
+  color: #bc00dd;
+  -webkit-text-stroke: 1.5px #8900f2;
+}
+
+.logpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.regpage { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* PUBLIC ROUTINES/ACTIVITIES PAGE */
+
+.subtitle {
+  text-align: center;
+  margin-top: 5px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.allroutines {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 20px;
+  width: 90%;
+}
+
+.single-routine {
+  padding: 1rem;
+  min-width: 24rem;
+  max-width: 24rem;
+  background-color: white;
+  box-shadow: 0 0 1em rgb(232, 218, 162);
+}
+
+.rout-name {
+  font-size: 24pt;
+  padding: 1rem;
+  text-align: center;
+}
+
+.routine-title {
+  color: orange;
+}
+
+.isPublic {
+  color: green;
+}
+
+.act-incl {
+  text-align: center;
+  color: rgb(133, 131, 131);
+}
+
+#act-in-rout {
+  padding: 1rem;
+  margin: 1.5rem;
+  box-shadow: 0 0 1em rgb(237, 170, 239);
+}
+
+#activity-name {
+  color: orange;
+}
+
+/* MY ROUTINES */
+
+.allmyroutines {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 20px;
+  width: 90%;
+}
+
+.single-myroutine {
+  padding: 1rem;
+  min-width: 24rem;
+  max-width: 24rem;
+  background-color: white;
+  box-shadow: 0 0 1em rgb(232, 218, 162);
+}
+
+.myroutine-name {
+  font-size: 24pt;
+  padding: 1rem;
+  text-align: center;
+}
+
+#addacttoroutbutton {
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: rgb(173, 74, 163);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#addSquatstoyourrout {
+  text-align: center;
+}
+
+#activity-word {
+  color: orange;
+}
+
+#addacttoroutbutton2 {
+  cursor: pointer;
+  color: rgb(173, 74, 163);
+}
+
+.addactform {
+  margin-bottom: 1rem;
+}
+
+.listOfAct {
+  list-style-type: none;
+  margin: 0.5rem;
+}
+
+#selectActButton {
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* SINGLE ACTIVITIES */
+
+.createActButton {
+  padding: 1rem;
+}
+.allact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 20px;
+  width: 90%;
+}
+
+.single-activity {
+  padding: 1rem;
+  min-width: 24rem;
+  max-width: 24rem;
+  background-color: white;
+  box-shadow: 0 0 1em rgb(232, 218, 162);
+}
+.act-name {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+
+  font-size: 20pt;
+}
+
+.act-desc {
+  color: #b90c8e;
+}
+
+.creact {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  width: 85%;
+  padding-left: 3%;
+  padding-right: 10%;
+  color: #f3b12e;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 25px;
+}
+
+/* NEW ACT/ROUT PAGE */
+.newroutpage,
+.newactpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.nrhead {
+  background: linear-gradient(
+    rgb(69, 16, 129) 1.6%,
+    rgb(154, 58, 127) 40.4%,
+    rgb(242, 173, 78) 73.5%,
+    rgb(250, 209, 152) 99.2%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #fff;
+}
+
+.makepub {
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 25px;
+  -webkit-text-stroke: 2.5px #ab0061;
+
+  display: flex;
+  justify-content: baseline;
+}
+
+/* USERHOME */
+.welcomeuser {
+  margin: 15px;
+}
+.dashcont {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.dash {
+  margin: 0;
+  padding: 10px;
+  background: linear-gradient(
+    rgb(251, 250, 205) 24.4%,
+    rgb(247, 1150, 205) 53.7%,
+    rgb(141, 66, 243) 99.2%
+  );
+
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 30px;
+  -webkit-text-stroke: 2px #ab0061;
+}
+
+hr {
+  border: 3px solid #ab0061;
+  margin: 0;
+}
+
+.profpic {
+  position: float;
+  margin-top: 10px;
+  background: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+  border: #5c0099 3px solid;
+  border-radius: 10px;
+}
+
+.sub,
+#accountinfo,
+#personalgoals {
+  color: black;
+  font-size: 15px;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+.per-in,
+.acc-in,
+.per-go,
+.spoti,
+.yt {
+  font-family: 'Shrikhand', cursive;
+  letter-spacing: 5px;
+  font-size: 35px;
+}
+
+#personalinfo {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* NAV BARS */
+.publicnav {
+  position: sticky; 
+  border-bottom: solid 10px #e500a4;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navlink {
+  padding: 8px;
+  margin: 3px;
+
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 40px;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #ffb600;
+
+  -webkit-text-stroke: 1.5px #ab0061;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.navlink:before {
+  position: absolute;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.navlink:hover,
+.navlink:focus,
+.navlink:active {
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+
+.navlink:hover:before,
+.navlink:focus:before,
+.navlink:active:before {
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+}
+
+.mynav {
+  position: sticky; 
+  border-bottom: solid 10px #ffb600;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.my {
+  -webkit-text-stroke: 2px #5c0099;
+}
+
+.fitnesshome {
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 65px;
+  color: #f975f7;
+  font-weight: lighter;
+  letter-spacing: 6px;
+  -webkit-text-stroke: 3px #f008b7;
+  -webkit-filter: drop-shadow(4px 3px 7px #f008b7);
+  filter: drop-shadow(4px 3px 7px #f008b7);
+
+  display: flex;
+  justify-content: left;
+  flex-shrink: 1;
+  border: none;
+  box-shadow: none;
+}
+
+.fitnesshome:hover {
+  font-family: 'Mr Dafoe', cursive;
+  border: none;
+  box-shadow: none;
 }
